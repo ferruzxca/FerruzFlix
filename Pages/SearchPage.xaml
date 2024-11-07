@@ -1,0 +1,35 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FerruzFlixMAUI.Pages.SearchPage"
+             Title="Buscar Película"
+             BackgroundColor="MediumPurple"
+             xmlns:vm="clr-namespace:FerruzFlixMAUI.ViewModels"
+             xmlns:models="clr-namespace:FerruzFlixMAUI.Models" 
+             x:DataType="vm:SearchViewModel">
+
+    <VerticalStackLayout Padding="10">
+        <SearchBar Placeholder="Buscar película..."
+                   SearchCommand="{Binding SearchCommand}"
+                   SearchCommandParameter="{Binding Text, Source={RelativeSource Self}}"/>
+        <CollectionView ItemsSource="{Binding SearchResults}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Media">
+                    <StackLayout Padding="10">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SearchViewModel}}, Path=NavigateToDetailsCommand}"
+                                                  CommandParameter="{Binding .}"/>
+                        </StackLayout.GestureRecognizers>
+
+                        <Label Text="{Binding DisplayTitle}" 
+                               FontAttributes="Bold" 
+                               FontSize="18" 
+                               TextColor="White"/>
+                        <Label Text="{Binding Overview}" 
+                               FontSize="14" 
+                               TextColor="White"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

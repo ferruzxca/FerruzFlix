@@ -1,0 +1,59 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FerruzFlixMAUI.Pages.LoginPage"
+             Title="Iniciar Sesión"
+             BackgroundColor="#1B1B3A">
+
+    <VerticalStackLayout Padding="30"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center">
+
+        <Image Source="ferruzflix.png"
+               WidthRequest="150"
+               HeightRequest="150"
+               HorizontalOptions="Center"
+               Margin="0,0,0,20"/>
+
+        <Label Text="FerruzFlix"
+               FontSize="36"
+               FontAttributes="Bold"
+               TextColor="#9400D3"
+               HorizontalOptions="Center"
+               Margin="0,0,0,30"/>
+
+        <Entry Placeholder="Nombre de Usuario"
+               PlaceholderColor="#C71585"
+               TextColor="White"
+               BackgroundColor="#282852"
+               HeightRequest="50"
+               Margin="0,0,0,20"
+               WidthRequest="300"
+               HorizontalOptions="Center"
+               FontSize="18"
+               Text="{Binding Username}"/>
+
+        <Entry Placeholder="Contraseña"
+               IsPassword="True"
+               PlaceholderColor="#C71585"
+               TextColor="White"
+               BackgroundColor="#282852"
+               HeightRequest="50"
+               Margin="0,0,0,20"
+               WidthRequest="300"
+               HorizontalOptions="Center"
+               FontSize="18"
+               Text="{Binding Password}"/>
+
+        <Button Text="Iniciar Sesión"
+                TextColor="White"
+                BackgroundColor="#0000FF"
+                FontAttributes="Bold"
+                HeightRequest="50"
+                WidthRequest="200"
+                HorizontalOptions="Center"
+                CornerRadius="25"
+                FontSize="18"
+                Command="{Binding LoginCommand}"/>
+
+    </VerticalStackLayout>
+</ContentPage>
